@@ -1,0 +1,59 @@
+Coffee Machine Project Documentation
+This project is an object-oriented simulation of a coffee machine implemented in Python. Users can order various drinks and pay with either cash or a stored-value card. The system checks resource availability and updates inventory after each purchase.
+------------------------------------------------------------
+1)MenuItem Class
+Attributes:
+name (str): The name of the drink, e.g., "latte"
+cost (float): The price of the drink
+    latte: $5.00
+    espresso: $4.50
+    cappuccino: $5.50
+    flat white: $5.00
+    mocha: $6.00
+    long black: $4.50
+    hot chocolate: $5.50
+ingredients (dict): The required ingredients and amounts
+Example: latte = {"water": 200, "milk": 150, "coffee": 24}
+------------------------------------------------------------
+2)Menu Class
+Methods:
+    get_items(): Returns all available drink names as a string, e.g., "latte/espresso/cappuccino
+    find_drink(order_name): Parameter order_name (str): The name of the drink. Searches the menu for the drink and returns a MenuItem object or None.
+------------------------------------------------------------
+3)CoffeeMaker Class
+Attributes:
+resources: Initial inventory for ingredients:
+    water: 3000ml
+    milk: 2000ml
+    coffee: 1000g
+Methods:
+    report(): Prints the current remaining resources
+    is_resource_sufficient(drink): Checks if the inventory is sufficient for the selected drink. Returns True/False.
+    make_coffee(order): Deducts the required ingredients and makes the coffee.
+------------------------------------------------------------
+4)MoneyMachine Class
+Attributes:
+    money_received: The cash received for the current transaction (reset after each payment)
+    card_balance: The card's initial balance, set to $10.00
+Methods:
+    process_coins(): Prompts the user to enter the quantity of each coin, calculates total cash input
+    make_payment(order): Checks if cash payment is sufficient. If yes, returns change; if not, refunds money.
+    make_card_payment(drink): Checks if the card balance is enough. Deducts cost if sufficient, otherwise prompts for top-up.
+    top_up_card(): Allows the user to add money to the card balance.
+    report(): Prints the current card balance and total profit.
+------------------------------------------------------------
+5)Main Program Flow:
+    The program runs in a loop, displaying the menu and waiting for user input (menu number, 'r' for report, or 'q' to quit).
+    If 'r' is entered, the program prints the current ingredient resources and card balance.
+    If a valid menu number is entered, the program checks if sufficient resources are available for the selected drink.
+    The user selects a payment method: card or cash.
+        For card: The system checks if the card balance is sufficient. If not, the user is prompted to top up their card.
+        For cash: The user is prompted to enter the number of each coin, and the system calculates and returns any change.
+    If the payment is successful, the drink is prepared and the inventory is updated.
+    After each purchase, the user can choose to order another drink or exit the program.
+------------------------------------------------------------
+6)Highlights:
+    Supports both cash and card payments, with the card's initial balance set to $10.00.
+    Ingredient quantities and drink prices are preset and customizable.
+    The OOP structure makes the code easy to maintain and extend.
+    Demonstrates encapsulation, modularity, and class interaction.
