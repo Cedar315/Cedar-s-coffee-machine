@@ -1,10 +1,12 @@
 class MoneyMachine:
 
     COIN_VALUES = {
-        "quarters": 0.25,
-        "dimes": 0.10,
-        "nickles": 0.05,
-        "pennies": 0.01
+       "two_dollars": 2.00,
+        "one_dollar": 1.00,
+        "fifty_cents": 0.50,
+        "twenty_cents": 0.20,
+        "ten_cents": 0.10,
+        "five_cents": 0.05
     }
 
 
